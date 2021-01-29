@@ -1,10 +1,16 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Deploy') {
             steps {
-                cat foundation.txt
+                retry(3) {
+                    echo 'Helo'
+                }
+
+                timeout(time: 3, unit: 'MINUTES') {
+                    echo 'jenkins'
+                }
             }
         }
     }
