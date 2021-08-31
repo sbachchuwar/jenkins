@@ -1,0 +1,4 @@
+def call() {
+    minorToolPipeline(COMPONENT_NAME, {
+            revisions -> conan.checkoutGerrit(revisions, "armcompiler/llvm-project") })
+}
